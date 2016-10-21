@@ -1,0 +1,36 @@
+# WHITE TLDS
+# Update Jan 07 2016
+#
+# TLDS
+.Ath.Cx
+.gob.ni
+.gov.an
+.gov.bc.ca
+.gov.bn
+.gov.com.ph
+.gov.gg
+.gov.hu
+.gov.je
+.gov.jo
+.gov.kw
+.gov.mm
+.gov.mt
+.gov.np
+.gov.ns.ca
+.gov.nu.ca
+.gov.on.ca
+.gov.pe.ca
+.gov.pf
+.gov.pg
+.gov.se
+.gov.si
+.gov.sk
+.gov.sk.ca
+.gov.ye
+.gov.yk.ca
+.gov.zw
+.zJ.cn
+.zj.com
+.com.google
+.rio
+.xyz
