@@ -14,7 +14,7 @@
 if [ ! -d /etc/acl ]; then mkdir -p /etc/acl; fi
 
 # GIT CLONE BLACLISTWEB
-git clone https://github.com/maravento/blackweb
+git clone https://github.com/maravento/blackweb.git
 
 # CHECKSUM AND COPY /etc/acl
 a=$(md5sum blackweb/blackweb.tar.gz | awk '{print $1}')
