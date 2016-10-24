@@ -19,7 +19,7 @@ if [ -d $blpath ]; then rm -rf $blpath; fi
 git clone https://github.com/maravento/blackweb.git
 
 # CREATE DIR
-if [ -d /etc/acl ]; then mkdir -p /etc/acl; fi
+if [ ! -d /etc/acl ]; then mkdir -p /etc/acl; fi
 
 # CHECKSUM AND COPY /etc/acl
 a=$(md5sum $blpath/blackweb.tar.gz | awk '{print $1}')

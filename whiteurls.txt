@@ -3615,6 +3615,7 @@ ckdatabase.icloud.com
 .chichester.gov.uk
 .chiddingly.gov.uk
 .childcarelink.gov.uk
+.chip.gov.co
 .cityoflondon.gov.uk
 .civilservice.gov.uk
 .clevelandfire.gov.uk
@@ -3643,6 +3644,7 @@ ckdatabase.icloud.com
 .consumers.gov.uk
 .consumersonline.gov.au
 .consumidoresunidos.org
+.contaduria.gov.co
 .contraloriagen.gov.co
 .contraloria.gov.co
 .contratos.gov.co
@@ -3848,6 +3850,7 @@ ckdatabase.icloud.com
 .jobsearch.gov.au
 .jobs.qld.gov.au
 .jobs.wa.gov.au
+.jupiter.contaduria.gov.co
 .kent.gov.uk
 .kirklees.gov.uk
 .kulin.wa.gov.au
