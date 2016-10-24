@@ -1,5 +1,4 @@
 # BLACKDOMAINS
-# Update Sep 14 2016
 #
 # PROXY-VPN
 .switchvpn.net
