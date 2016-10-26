@@ -31,10 +31,10 @@ then
 	cp -f $blpath/{blackweb,blackdomains,whitedomains}.txt /etc/acl >/dev/null 2>&1
   	rm -rf $blpath
 	date=`date +%d/%m/%Y" "%H:%M:%S`
-	echo "<--| Blackweb for Squid: ejecucion $date |-->" >> /var/log/syslog.log
+	echo "<--| Blackweb for Squid: $date |-->" >> /var/log/syslog.log
 else
 	rm -rf $blpath
 	date=`date +%d/%m/%Y" "%H:%M:%S`
-	echo "<--| Blackweb for Squid: abortada $date Verifique su conexion de internet |-->" >> /var/log/syslog.log
+	echo "<--| Blackweb for Squid: Abort $date Check Internet Connection |-->" >> /var/log/syslog.log
 	exit
 fi
