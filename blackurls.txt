@@ -484,6 +484,7 @@
 .x18.eu
 .xtendadvert.com
 # MALWARE
+.microsofteventoffice.com
 .directorio-w.com
 .yeabests.cc
 .S2.symcb.com
