@@ -506,6 +506,11 @@
 .nincsmail.com
 .viabcp.com
 .atributos.duckdns.org
+.frerusdimannsia.com
+.tandugolastsp.com
+.tontbetleftun.com
+.nagirlstylast.com
+.roponwithro.com
 # Hijacked explorers
 .widdit.com
 .searchcompletion.com
@@ -576,3 +581,8 @@
 .native.ad
 .jamie.cloud.virtualmin.com
 .vhost.sourceforge.net
+.bl-1.com
+.mailstat.us
+.via.intercom.io
+.hsms06.com
+.rjmetrics.com
