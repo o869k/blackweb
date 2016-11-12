@@ -52,7 +52,7 @@
 .studyaway.ru
 .yakuzarc.com
 .wickercentral.com
-.bevanfoundation.org
+.bevanfoun.agencydation.org
 .cctvhotdeals.com
 .cdduplication.ie
 .celtichr.com
@@ -586,3 +586,15 @@
 .via.intercom.io
 .hsms06.com
 .rjmetrics.com
+#
+# DOMAINS
+.adult
+.beer
+.onion
+.poker
+.porn
+.sex
+.sexy
+.vodka
+.whoswho
+.xxx
