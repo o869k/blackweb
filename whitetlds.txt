@@ -1003,6 +1003,7 @@
 .imgfave-herokuapp-com.global.ssl.fastly.net
 .lecom
 .mac
+.MUW.Edu
 .mybiz
 .myinfo
 .myname
