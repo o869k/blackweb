@@ -9,12 +9,16 @@
 # Description:       blackweb for Squid
 # by:	             maravento.com, novatoz.com
 ### END INIT INFO
+# Language spa-eng
+cm1=("Este proceso puede tardar mucho tiempo. Sea paciente..." "This process can take a long time. Be patient...")
+cm2=("Verifique su conexion a internet y reinicie el script" "Check your internet connection and restart the script")
+test "${LANG:0:2}" == "es"
+es=$?
 
 clear
 echo
 echo "Blackweb Project"
-echo "This process can take a long time. Be patient..."
-echo "Este proceso puede tardar mucho tiempo. Sea paciente..."
+echo "${cm1[${es}]}"
 echo
 bw=~/blackweb
 
@@ -23,18 +27,33 @@ if [ -d $bw ]; then rm -rf $bw; fi
 
 # GIT CLONE BLACLISTWEB
 echo "Download Blackweb..."
-git clone https://github.com/maravento/blackweb.git
+git clone https://github.com/maravento/blackweb.git >/dev/null 2>&1
 echo "OK"
 
 # CREATE DIR
 if [ ! -d $bw/bl ]; then mkdir -p $bw/bl; fi
 if [ ! -d /etc/acl ]; then mkdir -p /etc/acl; fi
 
+echo "Checking Sum..."
+a=$(md5sum $bw/blackweb.tar.gz | awk '{print $1}')
+b=$(cat $bw/blackweb.md5 | awk '{print $1}')
+	if [ "$a" = "$b" ]
+	then 
+		echo "Sum Matches"
+		cd $bw
+		tar -C bl -xvzf blackweb.tar.gz >/dev/null 2>&1
+		sed -e '/^#/d' blackurls.txt | sort -u >> bl/bls.txt
+		echo "OK"
+	else
+		echo "Bad Sum. Abort"
+		echo "${cm2[${es}]}"
+		rm -rf $bw
+		exit
+fi
+
 # DOWNLOAD BL
 echo "Download Public Bls..."
 cd $bw
-tar -C bl -xvzf blackweb.tar.gz >/dev/null 2>&1
-sed -e '/^#/d' blackurls.txt | sort -u >> bl/bls.txt
 
 function bldownload() {
     wget -q -c --retry-connrefused -t 0 "$1" -O - | sort -u >> bl/bls.txt
@@ -111,13 +130,14 @@ regexd='([a-zA-Z0-9][a-zA-Z0-9-]{1,61}\.){1,}(\.?[a-zA-Z]{2,}){1,}'
 find bl -type f -execdir egrep -oi "$regexd" {} \; | awk '{print "."$1}' | sort -u | sed 's:\(www\.\|WWW\.\|www0\.\|www1\.\|www2\.\|www3\.\|www4\.\|www5\.\|www6\.\|www7\.\|www8\.\|www9\.\|www10\.\|www11\.\|www12\.\|www13\.\|www14\.\|www15\.\|www16\.\|www17\.\|www18\.\|www19\.\|www20\.\|www01\.\|www02\.\|www03\.\|www04\.\|www05\.\|www06\.\|www07\.\|www08\.\|www09\.\|ww1\.\|ww2\.\|ww3\.\|ww4\.\|ww5\.\|ww6\.\|ww7\.\|ww8\.\|ww9\.\|www1bpt\.\|wws\.\|wwcampus\.\|wwater\.\|wwwsshe\.\|wwwpub\.\|wwwstaff\.\|wwwstd\.\|wwwi\.\|wwwlb\.\|wwwfac\.\|wwwvet\.\|wwwscience\.\|wwwpathnet\.\|wwwshs1\.\|wwwlibrary\.\|wwwdb\.\|wws2\.\|www2a\.\|wwwdir\.\|ftp\.\|/.*\)::g' > bldomains.txt
 echo "OK"
 
-echo "Delete Overlapping..."
+echo "Delete Overlapping Domains..."
 chmod +x parse_domain.py && python parse_domain.py | sort -u > blackweb.txt
 cp -f {blackweb,blackdomains,whitedomains}.txt /etc/acl >/dev/null 2>&1
 cd
 rm -rf $bw
+echo "OK"
 
 # LOG
 date=`date +%d/%m/%Y" "%H:%M:%S`
-echo "Blackweb Update for Squid: ejecucion $date" >> /var/log/syslog.log
+echo "Blackweb Update for Squid $date" >> /var/log/syslog.log
 echo "Done"

@@ -2157,6 +2157,7 @@ ipv6.google.com
 .statsfe1.update.microsoft.com
 .statsfe1.ws.microsoft.com
 .statsfe2.update.microsoft.com
+.signup.live.com
 .storage.live.com
 .store.microsoft.com
 .store.office.com
@@ -3359,6 +3360,7 @@ ckdatabase.icloud.com
 .ac.edu
 .ace.edu
 .aces.edu
+.aces.nmsu.edu
 .achs.edu
 .acp.edu
 .actcm.edu
@@ -5675,8 +5677,6 @@ ckdatabase.icloud.com
 .nyu.edu
 .oak.edu
 .oakhills.edu
-.oaklandcc.edu
-.oakland.edu
 .oakton.edu
 .oakwood.edu
 .oberlin.edu
@@ -6736,6 +6736,9 @@ ckdatabase.icloud.com
 .unac.edu.co
 .unach.edu.ec
 .unad.edu.co
+.campus0b.unad.edu.co
+.congresos.unadvirtual.org
+.conferencia2.unad.edu.co
 .una.edu
 .unaj.edu.ar
 .unal.edu.co
@@ -7811,6 +7814,7 @@ ckdatabase.icloud.com
 .ipswich.gov.uk
 .jamescitycountyva.gov
 .jcc.gov.co
+.sgr.jcc.gov.co
 .jeffersoncountytn.gov
 .jncc.gov.uk
 .jobcentreplus.gov.uk
@@ -8047,6 +8051,7 @@ ckdatabase.icloud.com
 .prosperidadsocial.gov.co
 .psc.gov
 .pubmedcentral.gov
+.puertocarreno-vichada.gov.co
 .quic.gov
 .radio.gov.uk
 .raleighnc.gov
@@ -8418,6 +8423,7 @@ ckdatabase.icloud.com
 .dell.com
 .desaprender.org
 .despegar.com.co
+.dextroyer.com
 .developer.intel.com
 .digicert.com
 .digitalocean.com
@@ -8495,6 +8501,7 @@ ckdatabase.icloud.com
 .fr.wikipedia.org
 .funiber.org
 .gateway.godaddy.com
+.gateproxy.com
 .gateway.payulatam.com
 .geo.mozilla.org
 .geotrust.com

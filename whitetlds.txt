@@ -983,6 +983,7 @@
 .co.html
 .com.google
 .com.googlepages.com
+.com.s3-website.eu-central-1.amazonaws.com
 .co.php
 .dzcom
 .epxkb8zz4ssdv7b.global.ssl.fastly.net

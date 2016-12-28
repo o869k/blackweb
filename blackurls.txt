@@ -542,6 +542,7 @@
 .safesear.ch
 .istartsurf.com
 .istartpageing.com
+.hhtxnet.com
 # VARIOUS
 .batidoraporno.com
 .portalimageneschulas.com
@@ -586,6 +587,7 @@
 .via.intercom.io
 .hsms06.com
 .rjmetrics.com
+.redbull.tv
 #
 # DOMAINS
 .adult
