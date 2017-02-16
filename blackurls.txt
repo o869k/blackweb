@@ -544,6 +544,7 @@
 .istartpageing.com
 .hhtxnet.com
 # VARIOUS
+.adkmob.com
 .batidoraporno.com
 .portalimageneschulas.com
 .musicaideal.net
@@ -588,6 +589,8 @@
 .hsms06.com
 .rjmetrics.com
 .redbull.tv
+.viglink.com
+.taboola.com
 #
 # DOMAINS
 .adult

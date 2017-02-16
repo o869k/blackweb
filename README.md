@@ -2,19 +2,15 @@
 
 <a target="_blank" href=""><img src="https://img.shields.io/badge/Development-ALPHA-blue.svg"></a>
 
-En ocasiones hemos necesitado bloquear un sitio web, ya sea de porno, descargas, drogas, malware, spyware, trackers, bots, redes sociales, warez, venta de armas, etc; y como son muchos, para ahorrar tiempo utilizamos las llamadas "listas negras" (blacklist). En Internet existen muchas, tales como [Shallalist] (http://www.shallalist.de/), [Urlblacklist] (http://urlblacklist.com/), [Capitole (Univ Toulouse)] (https://dsi.ut-capitole.fr/blacklists/), etc, sin embargo están plagadas de subdominios y falsos positivos. Sumado a esto, no son compatibles con [Squid-Cache] (http://www.squid-cache.org/) y al internar correrlas, el proxy se detiene, generando: "ERROR: '.sub.example.com' is a subdomain of '.example.com'". Este problema, conocido como "overlapping domains", [ha generado diversos debates] (https://stackoverflow.com/questions/33557298/remove-subdomains-from-blacklist-overlapping-domains), y a la fecha no hay solución. Lo anterior se debe a que estas listas negras fueron concebidas para Squid2x y Squidguard, y cuando ocurrió la migración de [Squid2x a 3x] (http://comments.gmane.org/gmane.comp.web.squid.general/98170), Squid dejó de aceptar subdominios. Muchos han optado por editar sus listas negras manualmente, y aplicado [parches] (http://www.squid-cache.org/mail-archive/squid-users/201208/0360.html), pero no ha funcionado. 
+[Blackweb] (http://www.maravento.com/p/blacklistweb.html) es un proyecto que pretende recopilar la mayor cantidad de listas negras públicas de dominios (para bloquear porno, descargas, drogas, malware, spyware, trackers, bots, redes sociales, warez, venta de armas, etc), con el objeto de unificarlas y hacerlas compatibles con [Squid-Cache] (http://www.squid-cache.org/) (Tested in v3.5.x). Para lograrlo, realizamos una depuración de urls, para evitar duplicados, dominios inválidos (validación de ccTLD, ccSLD, sTLD, uTLD, gSLD, gTLD, etc), y realizamos un filtrado con listas blancas de dominios (falsos positivos, como google, hotmail, yahoo, etc), y obtener una mega ACL, optimizada para [Squid-Cache] (http://www.squid-cache.org/), libre de "overlapping domains" (e.g: "ERROR: '.sub.example.com' is a subdomain of '.example.com'").
 
-[Blackweb] (http://www.maravento.com/p/blacklistweb.html) pretende recopilar la mayor cantidad de listas negras públicas de dominios, con el objeto de unificarlas y hacerlas compatibles con [Squid-Cache] (http://www.squid-cache.org/) (Tested in v3.5.x). Para lograrlo, realizamos una rigurosa depuración, evitando duplicados, y las comparamos con lista de extensiones de dominios (ccTLD, ccSLD, sTLD, uTLD, gSLD, gTLD, etc), para detectar dominios inválidos, y con "listas blancas" de dominios, para filtrar la mayor cantidad de falsos positivos posibles (google, hotmail, yahoo, etc), y obtener una mega lista de control (ACL), optimizada para [Squid-Cache] (http://www.squid-cache.org/), libre de "overlapping domains".
-
-Sometimes we needed to block a website, like a porn, downloads, drugs, malware, spyware, trackers, bots, social networks, warez, arms sales, etc; and how they are many, to save time we use so-called "blacklists" (blacklist). On the Internet there are many, such as [Shallalist] (http://www.shallalist.de/), [Urlblacklist] (http://urlblacklist.com/), [Capitole (Univ Toulouse)] (https://dsi.ut-capitole.fr/blacklists/), etc., however are plagued subdomains and false positives. Added to this, are not compatible with Squid-Cache and when try run them, proxy stops, generating: "ERROR: '.sub.example.com' is a subdomain of '.example.com'." This problem, known as "overlapping domains" has [generated many debates] (https://stackoverflow.com/questions/33557298/remove-subdomains-from-blacklist-overlapping-domains), and to date no solution. This is because these blacklists were designed to Squid2x and Squidguard, and when migration occurred [Squid2x to 3x] (http://comments.gmane.org/gmane.comp.web.squid.general/98170), Squid stopped accepting subdomains, generating the error. Many have chosen to manually edit their blacklists, and applied [patches] (http://www.squid-cache.org/mail-archive/squid-users/201208/0360.html), but has not worked.
-
-[Blackweb] (http://www.maravento.com/p/blacklistweb.html) aims to collect as many public blacklists of domains, in order to unify and compatible with [Squid-Cache] (http://www.squid-cache.org/) (Tested in v3.5.x). To achieve this, we conduct a thorough cleansing, avoiding duplicate, and compared with list of domain extensions (ccTLDs ccSLD, sTLD, uTLD, gSLD, gTLD, etc.) and "whitelist" domains to filter as many potential false positives (google, hotmail, yahoo, etc), and get a mega control list (ACL), optimized for [Squid-Cache] (http://www.squid-cache.org/) and free of "overlapping domains".
+[Blackweb] (http://www.maravento.com/p/blacklistweb.html) is a project that aims to collect as many public domain blacklists (to block porn, downloads, drugs, malware, spyware, trackers, Bots, social networks, warez, arms sales, etc.), in order to unify them and make them compatible with [Squid-Cache] (http://www.squid-cache.org/) (Tested in v3.5.x ). To do this, we perform a debugging of urls, to avoid duplicates, invalid domains (validation, ccTLD, ccSLD, sTLD, uTLD, gSLD, gTLD, etc), and filter with white lists of domains (false positives such as google , hotmail, yahoo, etc.), and get a mega ACL, optimized for [Squid-Cache] (http://www.squid-cache.org/), free of overlapping domains (eg: "ERROR: '.sub.example.com' is a subdomain of '.example.com'").
 
 ### Descripción/Description
 
 |File|BL Domains|
 |----|----------|
-|blackweb.txt|4.788.520|
+|blackweb.txt|5.019.312|
 
 ### Dependencias/Dependencies
 
@@ -22,9 +18,27 @@ Sometimes we needed to block a website, like a porn, downloads, drugs, malware, 
 git squid bash tar zip wget
 ```
 
-### Modo de uso/How to use
+### Modo de uso (manual)/How to use (manual)
 
-Descargue/Download:
+La ACL blackweb.txt ya viene optimizada para Squid, por tanto puede descargar solamente el archivo blackweb.tar.gz, descomprimirlo y ubicar la ACL en el directorio de su preferencia y activar la regla de Squid para su uso / The ACL blackweb.txt is already optimized for Squid, so you can download only the file blackweb.tar.gz, unzip it and locate the ACL in the directory of your preference and activate the Squid rule for your use
+
+```
+route=/folder_store_blackweb (e.g: /etc/acl)
+wget https://github.com/maravento/blackweb/raw/master/blackweb.tar.gz
+if [ ! -d $route ]; then mkdir -p $route; fi
+tar -C $route -xvzf blackweb.tar.gz
+```
+Edit /etc/squid3/squid.conf - /etc/squid/squid.conf:
+```
+# INSERT YOUR OWN RULE(S) HERE TO ALLOW ACCESS FROM YOUR CLIENTS
+acl blackweb dstdomain -i "/etc/acl/blackweb.txt"
+http_access deny blackweb
+```
+
+### Modo de uso (actualización)/How to use (Update)
+
+También puede descargar el proyecto Blackweb y actualizar la ACL blackweb.txt en dependencia de sus necesidades / You can also download the Blackweb project and update the blackweb.txt ACL depending on your needs
+
 ```
 git clone https://github.com/maravento/blackweb.git
 ```
@@ -48,7 +62,7 @@ Descarga incompleta/Incomplete download:
 ```
 Blackweb for Squid: Abort 14/06/2016 16:35:38 Check Internet Connection
 ```
-Edit /etc/squid3/squid.conf or /etc/squid/squid.conf:
+Edit /etc/squid3/squid.conf - /etc/squid/squid.conf:
 ```
 # INSERT YOUR OWN RULE(S) HERE TO ALLOW ACCESS FROM YOUR CLIENTS
 acl blackweb dstdomain -i "/etc/acl/blackweb.txt"
@@ -70,15 +84,14 @@ http_access deny blackweb
 
 ### Important
 
-- Por defecto la ruta de la acl blackweb es **/etc/acl** y del script de actualización **/etc/init.d** / The default path is blackweb acl **/etc/acl** and update script **/etc/init.d**
-- La acl blackweb está diseñada exclusivamente para bloquear dominios. Para los interesados en bloquear banners y otras modalidades publicitarias, visite el foro [Alterserv] (http://www.alterserv.com/foros/index.php?topic=1428.0) / The acl blackweb is designed exclusively to block domains. For those interested in blocking banners and other advertising forms, visit the [Alterserv] (http://www.alterserv.com/foros/index.php?topic=1428.0) forum.
-- Para convertir **Blackweb** a MS-DOS/Windows utilice las herramientas [Dos2Unix] (http://dos2unix.sourceforge.net/) o [FF Multiconverter] (https://sites.google.com/site/ffmulticonverter/download), etc. / To convert **Blackweb** to MS-DOS/Windows use the tools [dos2unix] (http://dos2unix.sourceforge.net/) or [FF Multiconverter] (https://sites.google.com/site/ffmulticonverter/download ), etc.
+- Por defecto, la ruta de blackweb es **/etc/acl** y del script **/etc/init.d** / By default, blackweb path is **/etc/acl** and the script **/etc/init.d**
+- Blackweb está diseñada exclusivamente para bloquear dominios. Para los interesados en bloquear banners y otras modalidades publicitarias, visite el foro [Alterserv] (http://www.alterserv.com/foros/index.php?topic=1428.0) / Blackweb is designed exclusively to block domains. For those interested in blocking banners and other advertising forms, visit the [Alterserv] (http://www.alterserv.com/foros/index.php?topic=1428.0) forum.
 
 ### Contributions
 
-Los interesados pueden contribuir, enviándonos enlaces de nuevas BLs, para ser incluidas en este proyecto. Estas deberán alojarse de forma permanente con acceso público (Ej: [Github] (https://github.com)), de fácil descarga, vía http/s, git, wget, etc, y de ser posible con control de versiones / Those interested may contribute sending us new BLs links to be included in this project. These must stay permanently with public access (eg [Github] (https://github.com)), easy to download via http/s, git, wget, etc, and if possible with version control.
+Los interesados pueden contribuir, enviándonos enlaces de nuevas BLs, para ser incluidas en este proyecto / Those interested may contribute sending us new BLs links to be included in this project
 
-### Data sheet (BLs including)
+### Data sheet
 
 ##### General Public and Malware BLs
 
@@ -140,11 +153,15 @@ Los interesados pueden contribuir, enviándonos enlaces de nuevas BLs, para ser 
 
 [whitetlds] (https://github.com/maravento/blackweb/raw/master/whitetlds.txt)
 
-#####Own lists (inside project)
+#####Own lists
 
 [Blackurls] (https://github.com/maravento/blackweb/raw/master/blackurls.txt)
 
 [Whiteurls] (https://github.com/maravento/blackweb/raw/master/whiteurls.txt)
+
+#####URLs Validation
+
+[httpstatus] (https://httpstatus.io/)
 
 ### Licence
 

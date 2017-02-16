@@ -20,6 +20,7 @@ echo
 echo "Blackweb Project"
 echo "${cm1[${es}]}"
 echo
+# PATH
 bw=~/blackweb
 
 # DEL OLD REPOSITORY
@@ -61,7 +62,7 @@ function bldownload() {
 	bldownload 'http://pgl.yoyo.org/adservers/serverlist.php?hostformat=nohtml' && sleep 1
 	bldownload 'http://malwaredomains.lehigh.edu/files/justdomains' && sleep 1
 	bldownload 'https://easylist-downloads.adblockplus.org/malwaredomains_full.txt' && sleep 1
-	bldownload 'http://www.passwall.com/blacklist.txt' && sleep 1
+	#bldownload 'http://www.passwall.com/blacklist.txt' && sleep 1
 	bldownload 'https://zeustracker.abuse.ch/blocklist.php?download=squiddomain' && sleep 1
 	bldownload 'http://someonewhocares.org/hosts/hosts' && sleep 1
 	bldownload 'http://winhelp2002.mvps.org/hosts.txt' && sleep 1
