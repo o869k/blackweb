@@ -986,6 +986,7 @@
 .com.s3-website.eu-central-1.amazonaws.com
 .co.php
 .dzcom
+.dropbox
 .epxkb8zz4ssdv7b.global.ssl.fastly.net
 .freebiz
 .freeinfo
@@ -1028,6 +1029,8 @@
 .servecom
 .servenet
 .serveorg
+.sex-in-com
+.system32update.com.s3-website.eu-central-1.amazonaws.com
 .the
 .thomas
 .tom

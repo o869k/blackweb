@@ -591,6 +591,7 @@
 .redbull.tv
 .viglink.com
 .taboola.com
+.vk.com
 #
 # DOMAINS
 .adult
