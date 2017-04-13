@@ -62,7 +62,7 @@ function bldownload() {
 	bldownload 'http://pgl.yoyo.org/adservers/serverlist.php?hostformat=nohtml' && sleep 1
 	bldownload 'http://malwaredomains.lehigh.edu/files/justdomains' && sleep 1
 	bldownload 'https://easylist-downloads.adblockplus.org/malwaredomains_full.txt' && sleep 1
-	#bldownload 'http://www.passwall.com/blacklist.txt' && sleep 1
+	bldownload 'http://www.passwall.com/blacklist.txt' && sleep 1
 	bldownload 'https://zeustracker.abuse.ch/blocklist.php?download=squiddomain' && sleep 1
 	bldownload 'http://someonewhocares.org/hosts/hosts' && sleep 1
 	bldownload 'http://winhelp2002.mvps.org/hosts.txt' && sleep 1
@@ -128,7 +128,7 @@ echo "OK"
 echo "Capture Domains..."
 cd $bw
 regexd='([a-zA-Z0-9][a-zA-Z0-9-]{1,61}\.){1,}(\.?[a-zA-Z]{2,}){1,}'
-find bl -type f -execdir egrep -oi "$regexd" {} \; | awk '{print "."$1}' | sort -u | sed 's:\(www\.\|WWW\.\|www0\.\|www1\.\|www2\.\|www3\.\|www4\.\|www5\.\|www6\.\|www7\.\|www8\.\|www9\.\|www10\.\|www11\.\|www12\.\|www13\.\|www14\.\|www15\.\|www16\.\|www17\.\|www18\.\|www19\.\|www20\.\|www01\.\|www02\.\|www03\.\|www04\.\|www05\.\|www06\.\|www07\.\|www08\.\|www09\.\|ww1\.\|ww2\.\|ww3\.\|ww4\.\|ww5\.\|ww6\.\|ww7\.\|ww8\.\|ww9\.\|www1bpt\.\|wws\.\|wwcampus\.\|wwater\.\|wwwsshe\.\|wwwpub\.\|wwwstaff\.\|wwwstd\.\|wwwi\.\|wwwlb\.\|wwwfac\.\|wwwvet\.\|wwwscience\.\|wwwpathnet\.\|wwwshs1\.\|wwwlibrary\.\|wwwdb\.\|wws2\.\|www2a\.\|wwwdir\.\|ftp\.\|/.*\)::g' > bldomains.txt
+find bl -type f -execdir egrep -oi "$regexd" {} \; | awk '{print "."$1}' | sort -u | sed 's:\(www\.\|WWW\.\|ftp\.\|/.*\)::g' > bldomains.txt
 echo "OK"
 
 echo "Delete Overlapping Domains..."
